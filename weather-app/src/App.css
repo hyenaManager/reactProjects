@@ -1,0 +1,85 @@
+
+.aside{
+  border-style: solid;
+  border-color: rgb(108, 151, 206);
+  font-size: small;
+  margin-bottom: 8px;
+  
+}
+.weatherApp{
+  max-width: 600px;
+  border-style: solid;
+  border-color: rgb(108, 151, 206);
+  background-color: rgb(108, 151, 206);
+  border-width: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  font-family: Impact;
+}
+h2{
+  text-align: center;
+  font-family: Impact;
+}
+.main{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 3px;
+  border-style: solid;
+  border-color: rgb(108, 151, 206);
+}
+.weatherConditions{
+  display: flex;
+  flex-direction: column;
+}
+
+.weatherBox{
+  font-family: Impact;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 233, 233);
+  border-style: solid;
+  border-color: rgb(108, 151, 206);
+  border-radius: 7%;
+}
+.weatherBox1{
+  font-family: Impact;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+  border-style: solid;
+  border-color: rgb(108, 151, 206);
+  border-radius: 7%;
+}
+input{
+  max-width: 144px;
+}
+
+li{
+  cursor: pointer;
+  font-family: Impact;
+}
+.detail{
+  border-style: solid;
+  border-color: rgb(108, 151, 206);
+}
+img{
+  width: 50px;
+  height: 50px;
+}
+ul {
+  padding: 0;
+  overflow: auto;
+}
+
+.cityList {
+  margin-top: 9px;
+  overflow: auto;
+  margin-bottom: 0;
+  padding-left: 0;
+  max-height: 400px;
+  text-align: center;
+}
