@@ -94,24 +94,21 @@ export default function UserInbox({
         <ul className="mt-3 border ">
           <AnimatePresence>
             {filteredMessage.map((message) => (
-              <>
-                <motion.div
-                  key={message.message}
-                  animate={{ opacity: 1 }}
-                  exit={{
-                    opacity: 0,
-                  }}
-                >
-                  {
-                    <Message
-                      key={message.id}
-                      message={message}
-                      watchedMessage={watchedMessage}
-                      deleteMessage={deleteMessage}
-                    />
-                  }
-                </motion.div>
-              </>
+              <motion.div
+                key={message.id}
+                animate={{ opacity: 1 }}
+                exit={{
+                  opacity: 0,
+                }}
+              >
+                {
+                  <Message
+                    message={message}
+                    watchedMessage={watchedMessage}
+                    deleteMessage={deleteMessage}
+                  />
+                }
+              </motion.div>
             ))}
           </AnimatePresence>
         </ul>
