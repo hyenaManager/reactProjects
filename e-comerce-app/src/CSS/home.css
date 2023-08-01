@@ -1,0 +1,106 @@
+/* This is Cart Css */
+.cashier button{
+    width: 100%;
+  }
+  .LRdisplay{
+    display: flex;
+    justify-content: space-between;
+  }
+  .quantity-text {
+    width: 30px;
+    text-align: center;
+  }
+  table td.img-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px; /* Adjust the width as needed */
+  }
+  .img-thumbnail {
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .quantity-container {
+    margin: auto;
+    max-width: 100px;
+  }
+  .cart-table{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and (max-width: 480px) {
+    .mainDiv{
+      max-height: 600px;
+      overflow: auto;
+    }
+    .quantity-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .quantity-container input{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .mainDiv {
+    width: 100%;
+    max-height: 500px;
+    overflow: auto;
+  }
+  .itemTable{
+    width: 100%;
+    height: 100%;
+  }
+  .confirmWidget-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 9;
+    font-family: cursive;
+  }
+  .confirmWidget-overlay .list-group-item{
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+  
+  .confirmWidget {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 700px;
+    pointer-events: auto;
+    z-index: 99;
+  }
+  
+  
+  .confirmWidget .reminder {
+    margin-bottom: 20px;
+  }
+  
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .confirmWidget button {
+    margin: 0 10px;
+  }
+  .catagoriesList{
+    position: relative;
+    text-align: center;
+  }
+  .catagoriesList li{
+    cursor: pointer;
+    font-size: 24px;
+  }

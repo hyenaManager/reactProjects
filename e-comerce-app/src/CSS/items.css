@@ -1,0 +1,147 @@
+.itemDetailMain .transparentButton :hover{
+    font-size: 70px;
+  }
+
+  
+  
+  .taskContainer{
+    max-height: 500px;
+    overflow: auto;
+    
+  }
+  .image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .fanLogo{
+    top: 50%;
+    left: 50%;
+    font-size: 60px;
+    text-align: center;
+  }
+  .cartingFunction{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .searchBar{
+   display: flex;
+   justify-content: flex-end;
+  }
+  @media screen and (max-width: 480px) {
+    .cartingFunction{
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+    }
+    .rounded-circle{
+      font-size: 10px;
+    }
+    .taskContainer{
+      max-height: 720px;
+      overflow: auto;
+    }
+  }
+  .imageDetailCart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .itemDetailMain{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    max-height: 500px;
+    overflow: auto;
+  }
+  .itemDetailMain .mainImg{
+    height: 320px;
+  }
+  .itemDetailMain .preImg{
+    width: 250px;
+    height: 250px;
+    filter: blur(0px);
+    transition: filter 0.5s linear;
+  }
+  .itemDetailMain .postImg{
+    width: 250px;
+    height: 250px;
+    filter: blur(0px);
+    transition: filter 0.5s linear;
+  }
+  .preImgDiv{
+    width: 250px;
+    height: 250px;
+  }
+  .postImgDiv{
+    width: 250px;
+    height: 250px;
+  }
+  /* .itemDetailMain img{
+    height: 320px;
+  } */
+  .refreshButton {
+    background-color: lightgreen;
+    color: aliceblue;
+    border: none;
+  }
+  .refreshButton:hover{
+    background-color: green;
+    color: white;
+    border: none;
+  }
+  .searchButton {
+    background-color: lightgreen;
+    color: aliceblue;
+    border: none;
+  }
+  .searchButton:hover{
+    background-color: green;
+    color: white;
+    border: none;
+  }
+  .loading {
+    filter: blur(20px);
+    clip-path: inset(0);
+    position: relative;
+    height: 320px;
+  }
+  .loaded {
+    filter: blur(0px);
+    transition: filter 0.5s linear;
+    position: relative;
+    height: 320px;
+  }
+  @media screen and (max-width: 480px){
+    .loading{
+      filter: blur(20px);
+      clip-path: inset(0);
+      position: relative;
+      height: 100px;
+      text-align: center;
+    }
+    .loaded{
+      filter: blur(0px);
+      transition: filter 0.5s linear;
+      position: relative;
+      max-height: 100px;
+      text-align: center;
+    }
+    .preImgDiv{
+      display: none;
+    }
+    .postImgDiv{
+      display: none;
+    }
+    .itemDetailMain{
+      max-height: 100%;
+    }
+  }

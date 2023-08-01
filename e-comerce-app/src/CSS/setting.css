@@ -1,0 +1,64 @@
+.settingDiv{
+    margin: auto;
+    max-width: 500px;
+    padding:5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    z-index: -1;
+  }
+  .policyTerms{
+    max-width: 700px;
+    max-height: 450px;
+    margin: auto;
+  }
+  .profileEditor{
+    max-width: 500px;
+    max-height: 500px;
+    margin: auto;
+    overflow: auto;
+  }
+  @media screen and  (max-width: 480px){
+    .settingDiv{
+      overflow: auto;
+    }
+    .policyTerms{
+      max-height: 700px;
+      overflow: auto;
+    }
+    .profileEditor{
+      max-height: 750px;
+      overflow: auto;
+    }
+  }
+  .settingOption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .options{
+    cursor: pointer;
+  }
+  .reedemPoints{
+    margin: auto;
+    margin-bottom: 9px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: cursive;
+  }
+  .reedemPoints div{
+    cursor: pointer;
+  }
+  /* .options{
+  
+  } */
+  .fontAwesome{
+    padding:50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    font-family: cursive;
+  }

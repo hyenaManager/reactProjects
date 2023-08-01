@@ -1,0 +1,32 @@
+.messageBox {
+    margin:auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: cursive;
+  }
+  .messageBox textarea{
+    height: 160px;
+  }
+  .messageBox h5{
+    margin: auto;
+  }
+  .socialMedia{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 500px;
+    margin:auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+  }
+
+  .messageLink{
+    text-decoration: none;
+  }
+  .messageHead{
+    font-family: cursive;
+  }

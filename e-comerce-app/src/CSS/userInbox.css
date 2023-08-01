@@ -1,0 +1,46 @@
+.messageList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .mainDivInboxMessage{
+    margin:auto;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mainDivInboxMessage ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .messageDisplay{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .messageDisplay textarea{
+    height: 160px;
+    background-color: wheat;
+    font-family:cursive;
+  }
+  @media screen and (max-width: 480px) {
+    .messageDisplay textarea{
+      overflow: auto;
+    }
+  }
+  .messageHeadings{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .messageNav{
+    background:none;
+    border:none;
+  }
+  .unwatched{
+    height: 7px;
+    width: 7px;
+  }

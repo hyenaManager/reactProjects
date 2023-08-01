@@ -1,0 +1,76 @@
+
+.col-4 {
+  position: relative;
+}
+.mainApp{
+  z-index: -2;
+}
+
+.transparentButton{
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: cursive;
+}
+.themePen{
+  position: fixed;
+  bottom: 3%;
+  left: 3%;
+  max-width: 40px;
+  max-height: 40px;
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.themeContainer{
+  position: fixed;
+  bottom: 8%;
+  left: 3%;
+  max-width: 120px;
+  height: auto;
+  padding: 14px;
+  z-index: 9999;
+}
+
+/*///////// css for detail ///////*/
+
+
+/* /////////////css for main app /////////////*/
+.components{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+/*/////////////CSS for cartOptions///////////// */
+
+
+/* /////////////footer///////////// */
+
+/* /////////////items///////////// */
+
+/*/////////////CSS for navbar/////////////*/
+
+
+/* /////////catagories///////// */
+
+/*////////error page////////*/
+
+/*/////////MessageBox///////*/
+
+/* ////css for order table////// */
+
+
+
+
+/*///css for inbox message/////*/
+
+::-webkit-scrollbar {
+  width: 5px; /* Set the width of the scroll bar */
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the scroll thumb */
+}
+/* //////setting CSS/////// */
