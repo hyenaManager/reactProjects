@@ -41,14 +41,21 @@ export default function Items({ cataType, addCart, removeCart, pureData }) {
   }
 
   const imgItems = filteredImages.map((data, index) => (
-    <Suspense fallback={<div>Loading.....</div>} key={index}>
+    <Suspense
+      fallback={
+        <div style={{ height: "320px" }} className="col-4 shadow text-center">
+          loading....
+        </div>
+      }
+      key={index}
+    >
       <Images
         imgData={data}
         addCart={addCart}
         removeCart={removeCart}
         hidden={shouldHiddenOrAll(data.type)}
         handleIsLogin={handleIsLogin}
-        placeholderSrc={"/src/svgs/loadingAnimated.gif"}
+        placeholderSrc={"/public/svgs/loadingAnimated.gif"}
       />
     </Suspense>
   ));
