@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { useRef, useState } from "react";
 import "./App.css";
 import "./CSS/home.css";
@@ -12,25 +12,23 @@ import { alphabet, myDatas, user_datas } from "./components/datas";
 import { CurrentUser, ThemeContext } from "./components/themeContext";
 
 import { Outlet, Route, Routes, useLocation } from "react-router-dom";
-import Home from "./components/home";
-import Carts from "./components/cartOptions";
-import MessageBox from "./components/message";
-import OrderList from "./components/orders";
-import Login from "./components/login";
-import Register from "./components/register";
-import UserInbox from "./components/userInbox";
+const Home = lazy(() => import("./components/home"));
+const Carts = lazy(() => import("./components/cartOptions"));
+const MessageBox = lazy(() => import("./components/message"));
+const OrderList = lazy(() => import("./components/orders"));
+const Login = lazy(() => import("./components/login"));
+const Register = lazy(() => import("./components/register"));
+const UserInbox = lazy(() => import("./components/userInbox"));
+const ItemDetail = lazy(() => import("./components/itemDetail"));
+const ErrorPage = lazy(() => import("./error-page"));
+const NavBarMobo = lazy(() => import("./components/pureNav"));
+const Setting = lazy(() => import("./components/setting"));
+const PolicyTerms = lazy(() => import("./components/eStorePolicy"));
+const Privacy = lazy(() => import("./components/privacyEdit"));
 
-import ItemDetail from "./components/itemDetail";
-import ErrorPage from "./error-page";
-import NavBarMobo from "./components/pureNav";
-import Setting from "./components/setting";
-import PolicyTerms from "./components/eStorePolicy";
-import Privacy from "./components/privacyEdit";
-import Loading from "./components/loadingMode";
-import { useEffect } from "react";
-import DefaultPage from "./components/defaultPage";
 import { AnimatePresence, motion } from "framer-motion";
 import ThemePen, { SelectTheme } from "./components/themeChanger";
+import DefaultPage from "./components/defaultPage";
 
 let orderId = 0;
 let userId = 2;
@@ -316,9 +314,7 @@ export default function App() {
               <Route
                 path="/"
                 element={
-                  navbarLoading ? (
-                    <DefaultPage />
-                  ) : (
+                  <Suspense fallback={<DefaultPage />}>
                     <Home
                       requestCata={requestCata}
                       addNewCart={addNewCart}
@@ -328,7 +324,7 @@ export default function App() {
                       selectedLi={selectedLi}
                       changeNav={changeNav}
                     />
-                  )
+                  </Suspense>
                 }
                 errorElement={<ErrorPage />}
               />
@@ -336,98 +332,120 @@ export default function App() {
               <Route
                 path="Cart"
                 element={
-                  <Carts
-                    allCarts={allCarts}
-                    removeCart={removeCart}
-                    priceUp={priceUp}
-                    priceDown={priceDown}
-                    totalPrice={totalRef.current}
-                    addNewOrder={addNewOrder}
-                    changeNav={changeNav}
-                    redeemPoints={redeemPoints}
-                    setRedeemPoints={editRedeemPoints}
-                  />
+                  <Suspense fallback={<DefaultPage />}>
+                    <Carts
+                      allCarts={allCarts}
+                      removeCart={removeCart}
+                      priceUp={priceUp}
+                      priceDown={priceDown}
+                      totalPrice={totalRef.current}
+                      addNewOrder={addNewOrder}
+                      changeNav={changeNav}
+                      redeemPoints={redeemPoints}
+                      setRedeemPoints={editRedeemPoints}
+                    />
+                  </Suspense>
                 }
               />
               <Route
                 path="message"
                 element={
-                  <MessageBox
-                    user={user}
-                    onSendMessage={onSendMessage}
-                    changeNav={changeNav}
-                  />
+                  <Suspense fallback={<DefaultPage />}>
+                    <MessageBox
+                      user={user}
+                      onSendMessage={onSendMessage}
+                      changeNav={changeNav}
+                    />
+                  </Suspense>
                 }
               />
               <Route
                 path="order-list"
                 element={
-                  <OrderList
-                    orderedList={orderedList}
-                    deleteOrder={deleteOrder}
-                    changeNav={changeNav}
-                  />
+                  <Suspense fallback={<DefaultPage />}>
+                    <OrderList
+                      orderedList={orderedList}
+                      deleteOrder={deleteOrder}
+                      changeNav={changeNav}
+                    />
+                  </Suspense>
                 }
               />
               <Route
                 path="setting/login"
                 element={
-                  <Login
-                    userDatas={userDatas}
-                    isLogin={successLogin}
-                    changeNav={changeNav}
-                  />
+                  <Suspense fallback={<DefaultPage />}>
+                    <Login
+                      userDatas={userDatas}
+                      isLogin={successLogin}
+                      changeNav={changeNav}
+                    />
+                  </Suspense>
                 }
               />
               <Route
                 path="setting/login/register"
                 element={
-                  <Register
-                    userDatas={userDatas}
-                    createUser={createUser}
-                    changeNav={changeNav}
-                  />
+                  <Suspense fallback={<DefaultPage />}>
+                    <Register
+                      userDatas={userDatas}
+                      createUser={createUser}
+                      changeNav={changeNav}
+                    />
+                  </Suspense>
                 }
               />
               <Route
                 path="inbox"
                 element={
-                  <UserInbox
-                    messages={inboxMessage}
-                    watchedMessage={watchedMessage}
-                    deleteMessage={deleteMessage}
-                    changeNav={changeNav}
-                  />
+                  <Suspense fallback={<DefaultPage />}>
+                    <UserInbox
+                      messages={inboxMessage}
+                      watchedMessage={watchedMessage}
+                      deleteMessage={deleteMessage}
+                      changeNav={changeNav}
+                    />
+                  </Suspense>
                 }
               />
               <Route
                 path="detail/:id"
                 element={
-                  <ItemDetail addNewCart={addNewCart} changeNav={changeNav} />
+                  <Suspense fallback={<DefaultPage />}>
+                    <ItemDetail addNewCart={addNewCart} changeNav={changeNav} />
+                  </Suspense>
                 }
               />
               <Route
                 path="setting"
                 element={
-                  <Setting
-                    onLogout={onLogout}
-                    redeemPoints={redeemPoints}
-                    changeNav={changeNav}
-                  />
+                  <Suspense fallback={<DefaultPage />}>
+                    <Setting
+                      onLogout={onLogout}
+                      redeemPoints={redeemPoints}
+                      changeNav={changeNav}
+                    />
+                  </Suspense>
                 }
               />
               <Route
                 path="setting/policy"
-                element={<PolicyTerms />}
+                element={
+                  <Suspense fallback={<DefaultPage />}>
+                    <PolicyTerms />
+                  </Suspense>
+                }
                 changeNav={changeNav}
               />
               <Route
                 path="setting/privacy"
                 element={
-                  <Privacy
-                    changeProfilePicture={changeProfilePicture}
-                    changeNav={changeNav}
-                  />
+                  <Suspense fallback={<DefaultPage />}>
+                    <Privacy
+                      changeProfilePicture={changeProfilePicture}
+                      changeNav={changeNav}
+                    />
+                  </Suspense>
                 }
               />
             </Routes>

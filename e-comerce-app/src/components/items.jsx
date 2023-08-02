@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import React, { useMemo, useTransition } from "react";
+import React, { Suspense, useMemo, useTransition } from "react";
 import {
   faCartShopping,
   faSpinner,
@@ -41,15 +41,16 @@ export default function Items({ cataType, addCart, removeCart, pureData }) {
   }
 
   const imgItems = filteredImages.map((data, index) => (
-    <Images
-      imgData={data}
-      key={index}
-      addCart={addCart}
-      removeCart={removeCart}
-      hidden={shouldHiddenOrAll(data.type)}
-      handleIsLogin={handleIsLogin}
-      placeholderSrc={"/src/svgs/loadingAnimated.gif"}
-    />
+    <Suspense fallback={<div>Loading.....</div>} key={index}>
+      <Images
+        imgData={data}
+        addCart={addCart}
+        removeCart={removeCart}
+        hidden={shouldHiddenOrAll(data.type)}
+        handleIsLogin={handleIsLogin}
+        placeholderSrc={"/src/svgs/loadingAnimated.gif"}
+      />
+    </Suspense>
   ));
 
   return (
