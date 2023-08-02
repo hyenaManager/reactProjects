@@ -1,10 +1,10 @@
 export default function DefaultPage() {
   return (
     <>
-      <h1
+      <div
         className="text-center mt-4 border-grow"
         style={{ margin: "auto" }}
-      ></h1>
+      ></div>
     </>
   );
 }
