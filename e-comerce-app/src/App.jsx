@@ -11,7 +11,7 @@ import "./CSS/userInbox.css";
 import { alphabet, myDatas, user_datas } from "./components/datas";
 import { CurrentUser, ThemeContext } from "./components/themeContext";
 
-import { Outlet, Route, Routes, useLocation } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 const Home = lazy(() => import("./components/home"));
 const Carts = lazy(() => import("./components/cartOptions"));
 const MessageBox = lazy(() => import("./components/message"));
@@ -222,9 +222,7 @@ export default function App() {
   function changeCata(cataType, index) {
     startTransition(() => {
       setRequestCata(cataType);
-      console.log("finished cataType later");
     });
-    console.log("change current list first");
     setSelectedLi(index);
   }
 
