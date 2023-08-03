@@ -26,7 +26,7 @@ export default function Weathers({ data }) {
 function Main({ data }) {
   const weatherLogoUrl =
     " https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
-  console.log("icon link" + weatherLogoUrl);
+
   const weather = filtWeather(data.weather[0].main);
   return (
     <>

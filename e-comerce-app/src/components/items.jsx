@@ -55,7 +55,7 @@ export default function Items({ cataType, addCart, removeCart, pureData }) {
         removeCart={removeCart}
         hidden={shouldHiddenOrAll(data.type)}
         handleIsLogin={handleIsLogin}
-        placeholderSrc={"/public/svgs/loadingAnimated.gif"}
+        placeholderSrc={"svgs/loadingAnimated.gif"}
       />
     </Suspense>
   ));

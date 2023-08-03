@@ -4,19 +4,24 @@ import { useOutletContext } from "react-router-dom";
 import { ThemeContext } from "./themeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import {
-  faCircleInfo,
-  faEye,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 export default function OrderList({ orderedList, deleteOrder, changeNav }) {
   const myTheme = useContext(ThemeContext);
-  // const [isChecking, setIsChecking] = useState(false);
-  const [detailId, setDetailId] = useState(null);
+  const [orderIndex, setOrderIndex] = useState(null);
+  const [isChecking, setIsChecking] = useState(false);
   useEffect(() => changeNav("orderList"));
   function handleBack() {
-    setDetailId(null);
+    setOrderIndex(null);
+    setIsChecking(false);
+  }
+  function handleDelete() {
+    deleteOrder(
+      orderedList[orderIndex].id,
+      orderedList[orderIndex].used_RDpoints
+    );
+    setIsChecking(false);
+    setOrderIndex(null);
   }
 
   return (
@@ -25,65 +30,108 @@ export default function OrderList({ orderedList, deleteOrder, changeNav }) {
         className="orderList container-fluid "
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
         exit={{ opacity: 0 }}
       >
         <div className="orderTable ">
           <table className="table text-center">
             <thead>
               <tr>
-                <th scope="col" style={{ backgroundColor: myTheme }}>
+                <th
+                  scope="col"
+                  style={{
+                    backgroundColor: myTheme,
+                    fontFamily: "cursive",
+                    color: "white",
+                  }}
+                >
                   items quantity
                 </th>
-                <th scope="col" style={{ backgroundColor: myTheme }}>
+                <th
+                  scope="col"
+                  style={{
+                    backgroundColor: myTheme,
+                    fontFamily: "cursive",
+                    color: "white",
+                  }}
+                >
                   order code
                 </th>
-                <th scope="col" style={{ backgroundColor: myTheme }}>
+                <th
+                  scope="col"
+                  style={{
+                    backgroundColor: myTheme,
+                    fontFamily: "cursive",
+                    color: "white",
+                  }}
+                >
                   total price
                 </th>
-                <th scope="col" style={{ backgroundColor: myTheme }}>
+                <th
+                  scope="col"
+                  style={{
+                    backgroundColor: myTheme,
+                    fontFamily: "cursive",
+                    color: "white",
+                  }}
+                >
                   user name
                 </th>
-                <th scope="col" style={{ backgroundColor: myTheme }}>
+                <th
+                  scope="col"
+                  style={{
+                    backgroundColor: myTheme,
+                    fontFamily: "cursive",
+                    color: "white",
+                  }}
+                >
                   Admin
                 </th>
-                <th scope="col" style={{ backgroundColor: myTheme }}></th>
+                <th
+                  scope="col"
+                  style={{
+                    backgroundColor: myTheme,
+                    fontFamily: "cursive",
+                    color: "white",
+                  }}
+                ></th>
               </tr>
             </thead>
             <tbody>
               {orderedList.map((list, index) => (
-                <>
-                  <tr key={list.orderCode}>
-                    <td>{list.quantity}</td>
-                    <td>{list.orderCode}</td>
-                    <td>{list.totalPrice} kyats</td>
-                    <td>{list.user_name}</td>
-                    <td>{list.approved ? "Approved" : "pending"}</td>
-                    <td>
-                      <button
+                <tr key={list.orderCode}>
+                  <td>{list.quantity}</td>
+                  <td>{list.orderCode}</td>
+                  <td>{list.totalPrice} kyats</td>
+                  <td>{list.user_name}</td>
+                  <td>{list.approved ? "Approved" : "pending"}</td>
+                  <td>
+                    <button
+                      className="transparentButton"
+                      style={{ color: myTheme, fontSize: "20px" }}
+                      onClick={() => {
+                        setOrderIndex(index);
+                        setIsChecking(true);
+                      }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faCircleInfo}
                         className="transparentButton"
-                        style={{ color: myTheme, fontSize: "20px" }}
-                        onClick={() => setDetailId(index)}
-                      >
-                        <FontAwesomeIcon
-                          icon={faCircleInfo}
-                          className="transparentButton"
-                        />
-                      </button>
-                    </td>
-                  </tr>
-                  {detailId === index ? (
-                    <CheckOrder
-                      order={list}
-                      handleDelete={deleteOrder}
-                      handleBack={handleBack}
-                    />
-                  ) : null}
-                </>
+                      />
+                    </button>
+                  </td>
+                </tr>
               ))}
             </tbody>
           </table>
         </div>
+        {isChecking ? (
+          <CheckOrder
+            order={orderedList[orderIndex]}
+            handleDelete={handleDelete}
+            handleBack={handleBack}
+          />
+        ) : null}
       </motion.div>
     </>
   );
@@ -133,7 +181,7 @@ function CheckOrder({ order, handleBack, handleDelete }) {
               </button>
               <button
                 className="confirm btn btn-outline-danger"
-                onClick={() => handleDelete(order.id, order.used_RDpoints)}
+                onClick={handleDelete}
               >
                 cancel order
               </button>

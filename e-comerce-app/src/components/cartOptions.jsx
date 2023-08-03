@@ -51,10 +51,14 @@ export default function Carts({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
         exit={{ opacity: 0 }}
         className="mainDiv"
-        style={paying ? { pointerEvents: "none", zIndex: "-1" } : null}
+        style={
+          paying
+            ? { pointerEvents: "none", zIndex: "-1", fontFamily: "cursive" }
+            : { fontFamily: "cursive" }
+        }
       >
         <div className=" row cart-table">
           <div className="col itemTable">

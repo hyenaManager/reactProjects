@@ -13,10 +13,11 @@ export default function Home({
   removeCart,
   pureData,
   changeCata,
-  selectedLi,
+  selectedList,
   changeNav,
 }) {
   useEffect(() => changeNav("home"));
+
   return (
     <>
       <motion.div
@@ -26,7 +27,7 @@ export default function Home({
         transition={{ duration: 0.3 }}
       >
         <aside className="col-3">
-          <Catagories onListClick={changeCata} Id={selectedLi} />
+          <Catagories onListClick={changeCata} selectedList={selectedList} />
         </aside>
         <div className="taskContainer col">
           <Items
