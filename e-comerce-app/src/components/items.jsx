@@ -1,6 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import React, { Suspense, useMemo, useTransition } from "react";
+import React, {
+  Suspense,
+  startTransition,
+  useMemo,
+  useTransition,
+} from "react";
 import {
   faCartShopping,
   faSpinner,
@@ -17,7 +22,7 @@ import LoginError from "./loginFirstError";
 export default function Items({ cataType, addCart, removeCart, pureData }) {
   const [addWithoutLogin, setAddWithoutLogin] = useState(false);
   const [filterText, setFilterText] = useState("");
-
+  const [isPending, startTransition] = useTransition();
   const myTheme = useContext(ThemeContext);
   const [filteredImages, setFilteredImages] = useState(pureData);
   function handleIsLogin(boolean) {
