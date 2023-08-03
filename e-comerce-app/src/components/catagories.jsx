@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { useOutletContext } from "react-router-dom";
 import { ThemeContext } from "./themeContext";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import {
   faBurger,
   faCakeCandles,
@@ -20,7 +20,9 @@ export default function Catagories({ onListClick, Id }) {
       <div className="">
         <ul className="  list-group catagoriesList ">
           <motion.li
-            whileHover={{ scale: 1.1 }}
+            whileHover={{
+              scale: 1.1,
+            }}
             whileTap={{ scale: 0.9 }}
             className={"list-group-item text-center"}
             onClick={() => {
@@ -35,7 +37,9 @@ export default function Catagories({ onListClick, Id }) {
             All
           </motion.li>
           <motion.li
-            whileHover={{ scale: 1.1 }}
+            whileHover={{
+              scale: 1.1,
+            }}
             whileTap={{ scale: 0.9 }}
             className={"list-group-item text-center"}
             onClick={() => {
@@ -50,7 +54,9 @@ export default function Catagories({ onListClick, Id }) {
             <FontAwesomeIcon icon={faCarrot} title="fruit" />
           </motion.li>
           <motion.li
-            whileHover={{ scale: 1.1 }}
+            whileHover={{
+              scale: 1.1,
+            }}
             whileTap={{ scale: 0.9 }}
             className={"list-group-item text-center"}
             onClick={() => {
@@ -65,7 +71,9 @@ export default function Catagories({ onListClick, Id }) {
             <FontAwesomeIcon icon={faBurger} title="snack" />
           </motion.li>
           <motion.li
-            whileHover={{ scale: 1.1 }}
+            whileHover={{
+              scale: 1.1,
+            }}
             whileTap={{ scale: 0.9 }}
             className={"list-group-item text-center"}
             onClick={() => {
@@ -80,7 +88,9 @@ export default function Catagories({ onListClick, Id }) {
             <FontAwesomeIcon icon={faCakeCandles} title="cake" />
           </motion.li>
           <motion.li
-            whileHover={{ scale: 1.1 }}
+            whileHover={{
+              scale: 1.1,
+            }}
             whileTap={{ scale: 0.9 }}
             className={"list-group-item text-center"}
             onClick={() => {
@@ -95,7 +105,9 @@ export default function Catagories({ onListClick, Id }) {
             <FontAwesomeIcon icon={faHatCowboy} title="hat" />
           </motion.li>
           <motion.li
-            whileHover={{ scale: 1.1 }}
+            whileHover={{
+              scale: 1.1,
+            }}
             whileTap={{ scale: 0.9 }}
             className={"list-group-item text-center"}
             onClick={() => {
@@ -110,7 +122,9 @@ export default function Catagories({ onListClick, Id }) {
             <FontAwesomeIcon icon={faPizzaSlice} title="pizza" />
           </motion.li>
           <motion.li
-            whileHover={{ scale: 1.1 }}
+            whileHover={{
+              scale: 1.1,
+            }}
             whileTap={{ scale: 0.9 }}
             className={"list-group-item text-center"}
             onClick={() => {
@@ -128,4 +142,9 @@ export default function Catagories({ onListClick, Id }) {
       </div>
     </>
   );
+}
+
+function List({ type, Id, onListClick }) {
+  const [isHover, SetIsHover] = useState();
+  return;
 }

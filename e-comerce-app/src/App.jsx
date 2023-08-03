@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { useRef, useState } from "react";
 import "./App.css";
 import "./CSS/home.css";
