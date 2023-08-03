@@ -51,8 +51,6 @@ export default function ItemDetail({ addNewCart, changeNav }) {
       onClick={() => {
         setIndex((index) => index - 1);
         setLoadingMain(true);
-        setLoadingPre(true);
-        setLoadingPost(true);
       }}
       disabled={index === 0 ? true : false}
     >
@@ -74,8 +72,6 @@ export default function ItemDetail({ addNewCart, changeNav }) {
       onClick={() => {
         setIndex((index) => index + 1);
         setLoadingMain(true);
-        setLoadingPre(true);
-        setLoadingPost(true);
       }}
       disabled={index === myDatas.length - 1 ? true : false}
     >
@@ -106,6 +102,9 @@ export default function ItemDetail({ addNewCart, changeNav }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              whileHover={{
+                scaleY: 1.08,
+              }}
             >
               {index === 0 ? (
                 <h3
@@ -198,6 +197,9 @@ export default function ItemDetail({ addNewCart, changeNav }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              whileHover={{
+                scaleY: 1.08,
+              }}
             >
               {index === myDatas.length - 1 ? (
                 <h3
