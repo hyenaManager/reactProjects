@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import React, { Suspense, lazy, useEffect, useTransition } from "react";
 import { useRef, useState } from "react";
 import "./App.css";
 import "./CSS/home.css";
@@ -33,7 +33,8 @@ import DefaultPage from "./components/defaultPage";
 let orderId = 0;
 let userId = 2;
 export default function App() {
-  const [selectedLi, setSelectedLi] = useState(10);
+  const [isPending, startTransition] = useTransition();
+  const [selectedLi, setSelectedLi] = useState(0);
   const [userDatas, setUserDatas] = useState(user_datas);
   const [requestCata, setRequestCata] = useState("all");
   const [allCarts, setAllCarts] = useState([]);
@@ -48,7 +49,9 @@ export default function App() {
   const [myTheme, setMyTheme] = useState("aqua");
   const [redeemPoints, setRedeemPoints] = useState(79); //one redeem point equal to 500ks
   const [showTheme, setShowTheme] = useState(false);
-
+  useEffect(() => {
+    setUserDatas(user_datas);
+  }, []);
   function ThemeVisible() {
     setShowTheme(!showTheme);
   }
@@ -219,10 +222,13 @@ export default function App() {
   }
   /////////Carts Functions End///////////
   /////////Catagories Functions Start///////////
-
-  function changeCata(cataType, Id) {
-    setRequestCata(cataType);
-    setSelectedLi(Id);
+  function changeCata(cataType, index) {
+    startTransition(() => {
+      setRequestCata(cataType);
+      console.log("finished cataType later");
+    });
+    console.log("change current list first");
+    setSelectedLi(index);
   }
 
   /////////Catagories Functions End/////
@@ -321,8 +327,8 @@ export default function App() {
                       removeCart={removeCart}
                       pureData={pureData}
                       changeCata={changeCata}
-                      selectedLi={selectedLi}
                       changeNav={changeNav}
+                      selectedList={selectedLi}
                     />
                   </Suspense>
                 }
