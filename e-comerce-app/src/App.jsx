@@ -40,9 +40,6 @@ export default function App() {
   const [allCarts, setAllCarts] = useState([]);
   const totalRef = useRef(0);
   const [pureData, setPureData] = useState(myDatas);
-
-  const [navbarLoading, setNavbarLoading] = useState(true); //show home page after nav bar is loaded
-
   const [user, setUser] = useState(userDatas[0]);
   const [messages, setMessages] = useState([]);
   const [currentNav, setCurrentNav] = useState("home");
@@ -294,9 +291,6 @@ export default function App() {
     };
   }
   /////////Items Functions End/////
-  setTimeout(() => {
-    return setNavbarLoading(false);
-  }, 1500);
 
   return (
     <>

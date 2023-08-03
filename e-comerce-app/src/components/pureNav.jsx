@@ -1,5 +1,5 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import React from "react";
+import React, { useTransition } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,14 +12,16 @@ import {
   faUserCircle,
   faChartPie,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CurrentUser, ThemeContext } from "./themeContext";
 export default function NavBarMobo({ allCarts, currentNav }) {
   const myTheme = useContext(ThemeContext);
+  const [isPending, startTransition] = useTransition();
   const currentUser = useContext(CurrentUser);
   const userName =
     currentUser !== null ? currentUser.user_name : <span>guest</span>;
+  const navigate = useNavigate();
 
   function selectedNav(nav) {
     if (currentNav === nav) {
