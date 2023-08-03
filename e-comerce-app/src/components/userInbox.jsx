@@ -92,25 +92,14 @@ export default function UserInbox({
           </button>
         </div>
         <ul className="mt-3 border ">
-          <AnimatePresence>
-            {filteredMessage.map((message) => (
-              <motion.div
-                key={message.id}
-                animate={{ opacity: 1 }}
-                exit={{
-                  opacity: 0,
-                }}
-              >
-                {
-                  <Message
-                    message={message}
-                    watchedMessage={watchedMessage}
-                    deleteMessage={deleteMessage}
-                  />
-                }
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          {filteredMessage.map((message) => (
+            <Message
+              key={message.id}
+              message={message}
+              watchedMessage={watchedMessage}
+              deleteMessage={deleteMessage}
+            />
+          ))}
         </ul>
       </motion.div>
     </>
@@ -127,11 +116,6 @@ function Message({ message, watchedMessage, deleteMessage }) {
       <motion.li
         initial={{ x: "-4vw" }}
         animate={{ opacity: 1, x: 0 }}
-        exit={{
-          opacity: 0,
-          x: "10vw",
-          transition: { duration: 0.5 },
-        }}
         className="messageList rounded m-2"
         style={{ maxHeight: "500px", overflow: "auto" }}
       >
