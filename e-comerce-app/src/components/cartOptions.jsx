@@ -85,7 +85,7 @@ export default function Carts({
               </thead>
               <tbody>
                 {allCarts.map((cart, index) => (
-                  <tr key={index}>
+                  <tr key={index} class="cartOptionTD">
                     <td>{index + 1}</td>
                     <td className="img-column">
                       <img
