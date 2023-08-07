@@ -104,3 +104,7 @@
     cursor: pointer;
     font-size: 24px;
   }
+.cartOptionTD td{
+    display:flex;
+    align-item:center;
+}
